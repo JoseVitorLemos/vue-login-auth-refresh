@@ -1,59 +1,47 @@
 <template>
-  <div id="app">
+  <header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
-  <b-navbar toggleable="lg" type="dark" variant="info" v-if='notIsLoginPage'>
-    <b-navbar-brand href="#">NavBar</b-navbar-brand>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li>
+            <router-link to="/" class="nav-link px-2 text-white">Home</router-link>
+          </li>
+        </ul>
 
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+        <div class="text-end">
+          <router-link to="/login" class="btn btn-outline-light me-2">Login</router-link>
+          <router-link to="/signin" class="btn btn-outline-light me-1">Signin</router-link>
+        </div>
 
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
-        <b-nav-item href="#">Link</b-nav-item>
-        <b-nav-item href="#" disabled>Disabled</b-nav-item>
-      </b-navbar-nav>
-
-      <b-navbar-nav class="ml-auto">
-        <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-          <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-        </b-nav-form>
-
-        <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item href="#">EN</b-dropdown-item>
-          <b-dropdown-item href="#">ES</b-dropdown-item>
-          <b-dropdown-item href="#">RU</b-dropdown-item>
-          <b-dropdown-item href="#">FA</b-dropdown-item>
-        </b-nav-item-dropdown>
-
-        <b-nav-item-dropdown right>
-          <template #button-content>
-            <em>User</em>
-          </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/login">Login</router-link>
+      </div>
     </div>
-    <router-view/>
-  </div>
+
+  <router-view/>
+  </header>
 </template>
 
-<script>
-	export default {
-		computed: {
-			notIsLoginPage() {
-				return this.$route.name !== 'Login'
-			}
-		}
-	}
-</script>
-
 <style>
-
+.form-app {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-app .checkbox {
+  font-weight: 400;
+}
+.form-app .form-floating:focus-within {
+  z-index: 2;
+}
+.form-app input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-app input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
 </style>
