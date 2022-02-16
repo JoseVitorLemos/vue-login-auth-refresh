@@ -9,8 +9,8 @@
         </ul>
 
         <div class="text-end">
-          <router-link to="/login" class="btn btn-outline-light me-2">Login</router-link>
-          <router-link to="/signin" class="btn btn-outline-light me-2">Signin</router-link>
+          <router-link to="/Login" class="btn btn-outline-light me-2">Login</router-link>
+          <router-link to="/Signin" class="btn btn-outline-light me-2">Signin</router-link>
         </div>
       </div>
     </div>
