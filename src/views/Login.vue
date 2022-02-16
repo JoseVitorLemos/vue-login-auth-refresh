@@ -17,3 +17,29 @@
     </form>
   </main>
 </template>
+
+<script>
+import axios from 'axios'
+import { useRouter } from 'vue-router'
+
+export default {
+  name: 'Login',
+  setup(){
+    const router = useRouter()
+    const submit = async e => {
+      	const form = new FormData(e.target)
+
+      	const inputs = Object.fromEntries(form.entries())
+
+      	const { data } = await axios.post('/account/login', inputs)
+
+				axios.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`
+
+      	await router.push('/')
+    }
+    return {
+      submit
+    }
+  }
+}
+</script>
