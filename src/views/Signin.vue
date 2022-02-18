@@ -1,7 +1,11 @@
 <template>
   <main>
+		<div class="main-div">
+			
     <form @submit.prevent="submit">
-		<div class="text-top">Please register</div>
+		<div class="text-top">
+			Please register
+		</div>
 
       <div class="form-floating">
         <input type="email" class="form-control" placeholder="your_emailmail.com" required v-model="email"/>
@@ -13,11 +17,13 @@
         <label>Password</label>
       </div>
 
-      <div class="form-floating">
+			<div class="form-floating">
       <button id="button" class="w-100 btn btn-lg btn-primary">Register</button>
       </div>
 
-    </form>
+      </form>
+
+		</div>
   </main>
 </template>
 
@@ -50,8 +56,7 @@ export default {
 	}
 
 	form{
-		width: 400px;
-		height: 200px;
+		width: 100%;
 	}
 
 	.form-floating{
@@ -64,8 +69,29 @@ export default {
 		font-size: 32px;
 		font-weight: bold;
 		text-align: center;
-		margin-bottom: 20px;
-		margin-top: 20px;
+		margin-bottom: 30px;
+	}
+
+	.main-div{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 30vw;
+		height: 70vh;
+	}
+
+	@media only screen and (max-width: 950px){
+		.main-div{
+			width: 80%;
+			margin-top: 20%;
+			display: flex-start;
+			align-items: start;
+		}
+
+		.text-top{
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
 	}
 
 </style>
