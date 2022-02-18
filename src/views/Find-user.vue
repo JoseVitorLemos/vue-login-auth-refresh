@@ -45,8 +45,6 @@ export default {
 			const { data } = axios.get(`account/${this.param}`)
 		}
 		
-		Vue.$watch(message, this.message = 'data')
-
   }
 
 }

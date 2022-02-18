@@ -1,30 +1,38 @@
 <template>
-  <main class="form-signin">
-      <div class="form-floating">
-				<h1 class="h3 mb-3 fw-normal">
-					<text>{{ message }}</text>
-				</h1>
-      </div>
-  </main>
+	<main>
+		<div class="text-top">
+				{{ message }}
+		</div>
+	</main>
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
 import axios from 'axios'
 
 export default {
   name: 'Home',
-  setup(){
-		const message = ref('')
+  data(){
+		return {
+			message: '',
+		}
+  },
 
-		onMounted(async () => {
-			const { data } = await axios.get('/')
-			message.value = data 
-		})
-
-    return {
-     message 
-    }
-  }
+  mounted(){
+		axios.get('').then(async response => this.message = response.data)
+  },
 }
 </script>
+
+<style scoped>
+	main{
+		background-color: var(--color-background-home);
+		justify-content: center;
+		align-items: center;
+	}
+
+	.text-top{
+		color: var(--color-background-nav);
+		font-size: 36px;
+		font-weight: bold;
+	}
+</style>

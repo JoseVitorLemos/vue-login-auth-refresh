@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-
   <Header />
+	<router-view path="$router.key" />
   </div>
 </template>
 
