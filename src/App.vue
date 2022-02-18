@@ -1,11 +1,10 @@
 <template>
   <div id="app">
-		<h1>Welcome to my app</h1>
   </div>
 </template>
 
 <script>
-
+import './styles/global.css'
 export default {
   name: 'App',
   components: {

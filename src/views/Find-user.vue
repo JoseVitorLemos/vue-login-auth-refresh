@@ -14,9 +14,7 @@
 					>
 						Search user
 					</button>
-						
 						<br/>
-
 					  <text>User: {{ message }} {{text}}</text>
 
 			</div>
