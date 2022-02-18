@@ -7,8 +7,8 @@
 			</div>
 
 			<div>
-				<router-link to="/Login" class="btn btn-outline-light me-2">Login</router-link>
-				<router-link to="/Signin" class="btn btn-outline-light me-2">Signin</router-link>
+				<router-link to="/Login" class="btn btn-outline-light me-2" v-if="!userActive">Login</router-link>
+				<router-link to="/Signin" class="btn btn-outline-light me-2" v-if="!userActive">Signin</router-link>
 				<router-link to="/Find-user" class="btn btn-outline-light me-2" v-if="userActive">Find User</router-link>
 			</div>
 

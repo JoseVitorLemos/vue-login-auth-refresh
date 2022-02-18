@@ -1,43 +1,71 @@
 <template>
-  <main class="form-signin">
+  <main>
     <form @submit.prevent="submit">
-      <h1 class="h3 mb-3 fw-normal">Please register</h1>
+		<div class="text-top">Please register</div>
 
       <div class="form-floating">
-        <input type="email" class="form-control" name="email" placeholder="your_email@mail.com">
+        <input type="email" class="form-control" placeholder="your_emailmail.com" required v-model="email"/>
         <label>Email address</label>
       </div>
 
       <div class="form-floating">
-        <input type="password" class="form-control" name="password" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Password" required v-model="password" />
         <label>Password</label>
       </div>
 
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+      <div class="form-floating">
+      <button id="button" class="w-100 btn btn-lg btn-primary">Register</button>
+      </div>
+
     </form>
   </main>
 </template>
 
 <script>
 import axios from 'axios'
-import { useRouter } from 'vue-router'
 
 export default {
   name: 'Signin',
-  setup(){
-    const router = useRouter()
-    const submit = async e => {
-      	const form = new FormData(e.target)
 
-      	const inputs = Object.fromEntries(form.entries())
-
-      	await axios.post('/account/signup', inputs)
-
-      	await router.push('/login')
-    }
-    return {
-      submit
+  data(){
+		return {
+			email: '',
+			password: ''
+		}
+  },
+  methods:{
+		submit: async function() {
+		axios.post('/account/signup', { email: this.email, password: this.password }).then(async res => res).catch(err => alert(err.message))
+		this.$router.push('/') 
     }
   }
 }
 </script>
+
+<style scoped>
+
+	main{
+		background-color: var(--color-background-light);
+		align-items: center;
+	}
+
+	form{
+		width: 400px;
+		height: 200px;
+	}
+
+	.form-floating{
+		margin-bottom: 10px;
+	}
+
+	.text-top{
+		align-items: center;
+		color: var(--color-background-nav);
+		font-size: 32px;
+		font-weight: bold;
+		text-align: center;
+		margin-bottom: 20px;
+		margin-top: 20px;
+	}
+
+</style>
