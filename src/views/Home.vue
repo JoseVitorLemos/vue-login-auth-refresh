@@ -1,30 +1,26 @@
 <template>
   <main class="form-signin">
-
       <div class="form-floating">
-
-      <h1 class="h3 mb-3 fw-normal">qiasjdiojas</h1>
-        <label>{{ message }}</label>
+				<h1 class="h3 mb-3 fw-normal">
+					<text>{{ message }}</text>
+				</h1>
       </div>
-
   </main>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import axios from 'axios'
 
 export default {
-  name: 'Login',
+  name: 'Home',
   setup(){
 		const message = ref('')
 
-		const text = async () => {
-			const { data } = axios.get()
-			return data
-		}
-
-		message.value = text
+		onMounted(async () => {
+			const { data } = await axios.get('/')
+			message.value = data 
+		})
 
     return {
      message 
