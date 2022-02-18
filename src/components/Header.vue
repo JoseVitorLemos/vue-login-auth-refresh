@@ -22,9 +22,9 @@ export default {
   data(){
 			const user = localStorage.getItem('userDetails')
 			if(!user) localStorage.setItem('userDetails', JSON.stringify({ auth: false }))
-			const { auth } = JSON.parse(user)
+			const { data } = JSON.parse(user)
 		return {
-			userActive: auth
+			userActive: data.auth
 		}
   }
 }
