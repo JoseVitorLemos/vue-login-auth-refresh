@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import './interceptors/axios'
 
 Vue.config.productionTip = false
 
