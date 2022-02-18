@@ -5,8 +5,8 @@ import Login from '../views/Login.vue'
 import FindUser from '../views/Find-user.vue'
 
 const routes = [
-  { path: '/', name: 'Home', component: Home
-  }, { path: '/Signin', name: 'Signin', component: Signin },
+  { path: '/', name: 'Home', component: Home },
+  { path: '/Signin', name: 'Signin', component: Signin },
 	{ path: '/Login', name: 'Login', component: Login },
 	{ path: '/Find-user', name: 'FindUser', component: FindUser }
 ]
