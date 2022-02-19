@@ -19,10 +19,10 @@
 <script>
 export default {
   name: 'Header',
-  data(){
-			const user = localStorage.getItem('userDetails')
-			if(!user) localStorage.setItem('userDetails', JSON.stringify({ auth: false }))
-			const { data } = JSON.parse(user)
+  mounted(){
+		const user = localStorage.getItem('userDetails')
+		if(!user) localStorage.setItem('userDetails', JSON.stringify({ auth: false }))
+		const { data } = JSON.parse(user)
 		return {
 			userActive: data.auth
 		}

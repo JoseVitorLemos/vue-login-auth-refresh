@@ -40,7 +40,7 @@ export default {
 		}
   },
   methods:{
-		submit: async function() {
+		submit: function() {
 		axios.post('/account/signup', { email: this.email, password: this.password }).then(async res => res).catch(err => alert(err.message))
 		this.$router.push('/') 
     }
@@ -84,7 +84,6 @@ export default {
 		.main-div{
 			width: 80%;
 			margin-top: 20%;
-			display: flex-start;
 			align-items: start;
 		}
 
