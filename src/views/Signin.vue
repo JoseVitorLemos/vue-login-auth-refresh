@@ -44,6 +44,14 @@ export default {
 		axios.post('/account/signup', { email: this.email, password: this.password }).then(async res => res).catch(err => alert(err.message))
 		this.$router.push('/') 
     }
+  },  
+
+  mounted() {
+		const user = localStorage.getItem('userDetails')
+		const { auth } = JSON.parse(user)
+		if(auth) {
+			this.$router.push('/') 
+		}
   }
 }
 </script>

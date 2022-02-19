@@ -41,12 +41,21 @@ export default {
   },
   methods:{
 		submit: function() {
+		this.$router.push('/') 
 		axios.post('account/login', { email: this.email, password: this.password }).then(async response => {
-			localStorage.setItem('userDetails', JSON.stringify(response))
+			localStorage.setItem('userDetails', JSON.stringify(response.data))
 			axios.defaults.headers.common['Authorization'] = `Bearer ${response.accessToken}`
 		}).catch(err => alert(err.message))
 		this.$router.push('/') 
     }
+  },
+
+  mounted() {
+		const user = localStorage.getItem('userDetails')
+		const { auth } = JSON.parse(user)
+		if(auth) {
+			this.$router.push('/') 
+		}
   }
 }
 </script>
