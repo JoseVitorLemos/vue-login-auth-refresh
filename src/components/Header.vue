@@ -21,10 +21,13 @@ export default {
   name: 'Header',
   data(){
 		const user = localStorage.getItem('userDetails')
-		if(!user) localStorage.setItem('userDetails', JSON.stringify({ auth: false }))
+		if(!user) {
+			localStorage.setItem('userDetails', JSON.stringify({ auth: false })) 
+			return { userActive: false }
+		}
 		const { auth } = JSON.parse(user)
 		return {
-			userActive: auth
+			userActive: auth 
 		}
   }
 }

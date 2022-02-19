@@ -46,7 +46,6 @@ export default {
 			localStorage.setItem('userDetails', JSON.stringify(response.data))
 			axios.defaults.headers.common['Authorization'] = `Bearer ${response.accessToken}`
 		}).catch(err => alert(err.message))
-		this.$router.push('/') 
     }
   },
 
