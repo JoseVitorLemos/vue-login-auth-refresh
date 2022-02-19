@@ -3,6 +3,7 @@
 		<div class="text-top">
 				{{ message }}
 		</div>
+
 	</main>
 </template>
 
@@ -35,4 +36,5 @@ export default {
 		font-size: 36px;
 		font-weight: bold;
 	}
+
 </style>
