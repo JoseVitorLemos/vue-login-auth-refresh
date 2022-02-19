@@ -46,6 +46,7 @@ export default {
 			localStorage.setItem('userDetails', JSON.stringify(response.data))
 			axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 		})
+		location.reload(true)
     }
   },
 

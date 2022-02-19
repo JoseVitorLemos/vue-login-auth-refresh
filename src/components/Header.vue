@@ -51,6 +51,7 @@ export default {
 		logout(){
 			axios.defaults.headers.common['Authorization'] = ''
 			localStorage.removeItem('userDetails')
+			location.reload(true)
 			this.$router.push('/')
 		}
 	}

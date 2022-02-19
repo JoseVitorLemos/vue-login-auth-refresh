@@ -1,5 +1,6 @@
 <template>
 	<main>
+
 		<div class="text-top">
 				{{ message }}
 		</div>

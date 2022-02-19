@@ -43,6 +43,7 @@ export default {
 		submit: function() {
 		axios.post('/account/signup', { email: this.email, password: this.password }).then(async res => res).catch(err => alert(err.message))
 		this.$router.push('/') 
+		location.reload(true)
     }
   },  
 
