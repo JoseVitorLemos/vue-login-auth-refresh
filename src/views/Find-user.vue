@@ -1,7 +1,7 @@
 <template>
 	<main>
 		<div>
-        <input type="text" placeholder="Find user with UserId" v-model="find" />
+        <input type="text" placeholder="Find user with UserId" v-model="input" />
       <button id="button" class="w-100 btn btn-lg btn-primary" @click="handleInput">Search user</button>
 		</div>
 
@@ -23,23 +23,28 @@ export default {
   name: 'FindUser',
 	data() {
 		return { 
-			message: ''
+			input: '',
+			id: '',
+			email: '',
+			created_at: ''
 		}
 	},
 
 	methods: {
-  handleInput(){
-		const { data } = axios.get(`account/${1}`)
-		alert(data)
+  async handleInput(){
+		const { data } = await axios.get(`account/${this.input}`)
+		const { id, email, created_at } = data
+		this.id = id
+		this.email = email 
+		this.created_at = created_at
 	}
   },
 
   mounted() {
 		const user = localStorage.getItem('userDetails')
+		if(!user) this.$router.push('/') 
 		const { auth } = JSON.parse(user)
-		if(!auth) {
-			this.$router.push('/') 
-		}
+		if(!auth)	this.$router.push('/') 
   }
 }
 </script>
