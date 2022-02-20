@@ -8,12 +8,12 @@
 		</div>
 
       <div class="form-floating">
-        <input type="email" class="form-control" placeholder="your_emailmail.com" required v-model="email" autocomplete="on"/>
+        <input type="email" class="form-control" placeholder="your_emailmail.com" required v-model="email"/>
         <label>Email address</label>
       </div>
 
       <div class="form-floating">
-        <input type="password" class="form-control" placeholder="Password" required v-model="password" autocomplete="on"/>
+        <input type="password" class="form-control" placeholder="Password" required v-model="password" />
         <label>Password</label>
       </div>
 
@@ -41,8 +41,8 @@ export default {
   },
   methods:{
 		submit: function() {
-		axios.post('/account/signup', { email: this.email, password: this.password }).then(async res => res).catch(err => alert(err.message))
-			.then(() => location.reload(true))
+		axios.post('/account/signup', { email: this.email, password: this.password })
+		this.$router.push('/') 
     }
   },  
 
