@@ -1,25 +1,28 @@
 <template>
 	<header>
-		<nav class="container">
+	<div class="container">
+		<div class="row">
 
-			<div>
+      <div class="col-sm" id="sm1">
 				<router-link to="/" class="btn btn-outline-light me-2">Home</router-link>
 			</div>
 
-			<div v-if="!userActive">
+		<div class="col-sm" v-if="userActive" id="sm2">
+				<router-link to="/Find-user" class="btn btn-outline-light me-2">Find User</router-link>
+		</div>
+
+		<div class="col-sm" v-if="!userActive" id="sm3">
 				<router-link to="/Login" class="btn btn-outline-light me-2">Login</router-link>
 				<router-link to="/Signin" class="btn btn-outline-light me-2">Signin</router-link>
+		</div>
+
+			<div class="col-sm" v-if="userActive" id="sm3">
+				<router-link to="/update" class="btn btn-outline-light me-2">Update</router-link>
+				<button class="btn btn-outline-light me-2" @click="logout">Logout</button>
 			</div>
 
-			<div v-if="userActive">
-				<router-link to="/Find-user" class="btn btn-outline-light me-2">Find User</router-link>
-				</div>
-
-			<div v-if="userActive">
-				<button id="button" class="btn btn-outline-light me-2" @click="logout">Logout</button>
-			</div>
-
-		</nav>
+		</div>
+	</div>
 	</header>
 </template>
 
@@ -76,9 +79,16 @@ header {
   align-items: center;
 }
 
-nav{
-	display: flex;
-	justify-content: space-between;
+#sm1{
+  text-align: start;
+}
+
+#sm2{
+  text-align: center;
+}
+
+#sm3{
+  text-align: end;
 }
 
 </style>

@@ -1,11 +1,11 @@
 <template>
   <main>
 		<div class="main-div">
-			
-    <form @submit.prevent="submit">
-		<div class="text-top">
-			Please register
-		</div>
+			<form @submit.prevent="submit">
+
+			<div class="text-top">
+				Please register
+			</div>
 
       <div class="form-floating">
         <input type="email" class="form-control" placeholder="your_emailmail.com" required v-model="email" autocomplete="on"/>
@@ -18,11 +18,10 @@
       </div>
 
 			<div class="form-floating">
-      <button id="button" class="w-100 btn btn-lg btn-primary">Register</button>
+				<button class="w-100 btn btn-lg btn-primary">Register</button>
       </div>
 
-      </form>
-
+			</form>
 		</div>
   </main>
 </template>
