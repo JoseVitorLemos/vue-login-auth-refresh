@@ -15,8 +15,9 @@ axios.interceptors.response.use(response => response, async err => {
 	}
 
 	if(err.response.status == 400) {
-		console.log(err.response)
-		//localStorage.removeItem('userDetails')
-		//location.reload(true)
+		if(err.response.data.message === 'jwt expired') {
+			localStorage.removeItem('userDetails')
+			location.reload(true)
+		}
 	}
 })

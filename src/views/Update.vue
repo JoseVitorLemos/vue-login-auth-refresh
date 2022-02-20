@@ -66,7 +66,6 @@ export default {
 		if(this.newPasswordOne === this.newPasswordTwo) {
 			this.error = null
 			await axios.put(`account/update`, { email: this.email, oldPassword: this.oldPassword, newPassword: this.newPasswordOne }).then(async response => {
-			console.log(response)
 			if(!response) {
 				this.message = 'Invalid email or password'
 				this.success = false 
