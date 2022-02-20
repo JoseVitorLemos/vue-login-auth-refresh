@@ -1,16 +1,22 @@
 <template>
 	<main>
-		<div>
-        <input type="text" placeholder="Find user with UserId" v-model="input" />
-      <button id="button" class="w-100 btn btn-lg btn-primary" @click="handleInput">Search user</button>
+
+		<div class="container">
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<button class="btn btn-outline-secondary" type="button" @click="handleInput">Search user</button>
+			</div>
+				<input type="text" class="form-control" placeholder="Search by email or userId" aria-label="" aria-describedby="basic-addon1" v-model="input">
+			</div>
 		</div>
 
-			<div class="container">
-				<ul>
-					<li>Id: {{ id }}</li>
-					<li>Email: {{ email }}</li>
-					<li>Data de criação: {{ created_at }}</li>
-				</ul>
+		<div class="container-list" v-if="table">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-dark">User account</li>
+				<li class="list-group-item"><b>Id: </b> {{ id }}</li>
+				<li class="list-group-item"><b>Email: </b>{{ email }}</li>
+				<li class="list-group-item"><b>Data de criação: </b>{{ created_at }}</li>
+			</ul>
 		</div>
 
 	</main>
@@ -26,17 +32,22 @@ export default {
 			input: '',
 			id: '',
 			email: '',
-			created_at: ''
+			created_at: '',
+			table: null 
 		}
 	},
 
 	methods: {
   async handleInput(){
-		const { data } = await axios.get(`account/${this.input}`)
-		const { id, email, created_at } = data
-		this.id = id
-		this.email = email 
-		this.created_at = created_at
+		if(this.input.length > 0) {
+			const { data } = await axios.get(`account/${this.input}`)
+			const { id, email, created_at } = data
+
+			this.id = id
+			this.email = email 
+			this.created_at = created_at
+			this.table = true 
+		}
 	}
   },
 
@@ -56,23 +67,18 @@ export default {
 		align-items: start;
 		width: 100%;
 		align-items: center;
-		justify-content: center;
-		width: 100vw;
+		justify-content: start;
 		height: 70vh;
 
 	}
 
-	.form-floating{
-		margin-bottom: 10px;
+	.container{
+		width: 90%;
+		margin-top: 30px;
 	}
 
-	.text-top{
-		align-items: center;
-		color: var(--color-background-nav);
-		font-size: 32px;
-		font-weight: bold;
-		text-align: center;
-		margin-bottom: 30px;
+	.container-list{
+		margin-top: 30px;
 	}
 
 	@media only screen and (max-width: 950px){
@@ -87,5 +93,4 @@ export default {
 			margin-bottom: 20px;
 		}
 	}
-
 </style>
