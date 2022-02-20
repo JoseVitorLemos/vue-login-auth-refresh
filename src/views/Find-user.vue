@@ -6,7 +6,7 @@
 			<div class="input-group-prepend">
 				<button class="btn btn-outline-secondary" type="button" @click="handleInput">Search user</button>
 			</div>
-				<input type="text" class="form-control" placeholder="Search by email or userId" aria-label="" aria-describedby="basic-addon1" v-model="input">
+				<input type="text" class="form-control" placeholder="Search by email" aria-label="" aria-describedby="basic-addon1" v-model="input">
 			</div>
 		</div>
 
@@ -40,9 +40,9 @@ export default {
 	methods: {
   async handleInput(){
 		if(this.input.length > 0) {
-			const { data } = await axios.get(`account/${this.input}`)
+		const input = this.input.replace(/\s/g, '')
+		const { data } = await axios.post(`account/search`, { email: input })
 			const { id, email, created_at } = data
-
 			this.id = id
 			this.email = email 
 			this.created_at = created_at
