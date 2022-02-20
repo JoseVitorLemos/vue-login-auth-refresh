@@ -8,12 +8,12 @@
 		</div>
 
       <div class="form-floating">
-        <input type="email" class="form-control" placeholder="your_emailmail.com" required v-model="email"/>
+        <input type="email" class="form-control" placeholder="your_emailmail.com" required v-model="email" autocomplete="on"/>
         <label>Email address</label>
       </div>
 
       <div class="form-floating">
-        <input type="password" class="form-control" placeholder="Password" required v-model="password" />
+        <input type="password" class="form-control" placeholder="Password" required v-model="password"  autocomplete="on"/>
         <label>Password</label>
       </div>
 

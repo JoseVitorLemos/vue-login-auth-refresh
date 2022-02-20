@@ -16,5 +16,6 @@ axios.interceptors.response.use(response => response, async err => {
 
 	if(err.response.status == 400) {
 		localStorage.removeItem('userDetails')
+		location.reload(true)
 	}
 })

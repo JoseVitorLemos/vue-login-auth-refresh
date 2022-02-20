@@ -24,6 +24,7 @@
 
 <script>
 import axios from 'axios'
+import { formatDate } from '../utils/helpers'
 
 export default {
   name: 'FindUser',
@@ -45,7 +46,7 @@ export default {
 			const { id, email, created_at } = data
 			this.id = id
 			this.email = email 
-			this.created_at = created_at
+			this.created_at = formatDate(new Date(created_at)) 
 			this.table = true 
 		}
 	}
