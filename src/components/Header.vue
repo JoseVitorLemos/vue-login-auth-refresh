@@ -36,15 +36,22 @@ export default {
 
 		async mounted(){
 		const user = localStorage.getItem('userDetails')
-		const { accessToken } = JSON.parse(user)
-		const { status } = await axios.post('auth/token', { accessToken })
-		if(status != 200) { 
-			localStorage.setItem('userDetails', JSON.stringify(Object.assign(user, { auth: false })))
-			this.userActive = false
+		if(user == null) {
+			localStorage.setItem('userDetails', JSON.stringify({ auth: false }))
 		} else {
-			axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
-			this.userActive = true
-		} 
+			const { accessToken } = JSON.parse(user)
+
+			if(accessToken != null) {
+				const { status } = await axios.post('auth/token', { accessToken })
+				if(status != 200) { 
+					localStorage.setItem('userDetails', JSON.stringify(Object.assign(user, { auth: false })))
+					this.userActive = false
+				} else {
+					axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+					this.userActive = true
+				} 
+			}
+		}
 	},
 
 	methods: {
