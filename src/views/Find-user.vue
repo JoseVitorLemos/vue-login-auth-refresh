@@ -16,7 +16,7 @@
 				<li class="list-group-item"><b>Id: </b> {{ id }}</li>
 				<li class="list-group-item"><b>Email: </b>{{ email }}</li>
 				<li class="list-group-item"><b>Data de criação: </b>{{ created_at }}</li>
-				<li class="list-group-item"><b>Data de atualização: </b>{{ updated_at }}</li>
+				<li class="list-group-item" v-if="updated != null"><b>Data de atualização: </b>{{ updated_at }}</li>
 			</ul>
 		</div>
 
@@ -36,6 +36,7 @@ export default {
 			email: '',
 			created_at: '',
 			updated_at: '',
+			updated: null,
 			table: null
 		}
 	},
@@ -49,7 +50,9 @@ export default {
 			this.id = id
 			this.email = email 
 			this.created_at = formatDate(new Date(created_at)) 
-			this.updated_at = formatDate(new Date(updated_at))
+			this.updated = true
+			this.updated_at = updated_at ? formatDate(new Date(updated_at)) : this.updated = null
+			this.table = true 
 		}
 	}
   },
