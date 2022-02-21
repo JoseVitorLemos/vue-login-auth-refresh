@@ -42,7 +42,8 @@ export default {
   async handleInput(){
 		if(this.input.length > 0) {
 		const input = this.input.replace(/\s/g, '')
-		const { data } = await axios.post(`account/search`, { email: input })
+
+		const { data } = await axios.get(`account/search?email=${input}`)
 			const { id, email, created_at } = data
 			this.id = id
 			this.email = email 
