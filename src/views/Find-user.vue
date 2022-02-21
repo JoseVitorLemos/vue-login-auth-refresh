@@ -6,7 +6,7 @@
 			<div class="input-group-prepend">
 				<button class="btn btn-outline-secondary" type="button" @click="handleInput">Search user</button>
 			</div>
-				<input type="text" class="form-control" placeholder="Search by email" aria-label="" aria-describedby="basic-addon1" v-model="input">
+				<input type="email" class="form-control" placeholder="Search by email" required v-model="input" autocomplete="on">
 			</div>
 		</div>
 
@@ -16,6 +16,7 @@
 				<li class="list-group-item"><b>Id: </b> {{ id }}</li>
 				<li class="list-group-item"><b>Email: </b>{{ email }}</li>
 				<li class="list-group-item"><b>Data de criação: </b>{{ created_at }}</li>
+				<li class="list-group-item"><b>Data de atualização: </b>{{ updated_at }}</li>
 			</ul>
 		</div>
 
@@ -34,7 +35,8 @@ export default {
 			id: '',
 			email: '',
 			created_at: '',
-			table: null 
+			updated_at: '',
+			table: null
 		}
 	},
 
@@ -42,13 +44,12 @@ export default {
   async handleInput(){
 		if(this.input.length > 0) {
 		const input = this.input.replace(/\s/g, '')
-
 		const { data } = await axios.get(`account/search?email=${input}`)
-			const { id, email, created_at } = data
+			const { id, email, created_at, updated_at } = data
 			this.id = id
 			this.email = email 
 			this.created_at = formatDate(new Date(created_at)) 
-			this.table = true 
+			this.updated_at = formatDate(new Date(updated_at))
 		}
 	}
   },

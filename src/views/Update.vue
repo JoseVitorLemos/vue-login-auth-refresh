@@ -13,7 +13,7 @@
       </div>
 
       <div class="form-floating">
-        <input type="password" class="form-control" placeholder="your_emailmail.com" required v-model="oldPassword" autocomplete="on"/>
+        <input type="password" class="form-control" placeholder="exemple@mail.com" required v-model="oldPassword" autocomplete="on"/>
         <label>Old password</label>
       </div>
 
@@ -63,6 +63,7 @@ export default {
   },
   methods:{
 		submit: async function() {
+
 		if(this.newPasswordOne === this.newPasswordTwo) {
 			this.error = null
 			await axios.put(`account/update`, { email: this.email, oldPassword: this.oldPassword, newPassword: this.newPasswordOne }).then(async response => {

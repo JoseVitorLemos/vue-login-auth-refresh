@@ -8,7 +8,7 @@
 			</div>
 
       <div class="form-floating">
-        <input type="email" class="form-control" placeholder="your_emailmail.com" required v-model="email" autocomplete="on"/>
+        <input type="email" class="form-control" placeholder="exemple@mail.com" required v-model="email" autocomplete="on"/>
         <label>Email address</label>
       </div>
 
