@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:3000/'
+axios.defaults.baseURL = 'https://jwt-account-api.herokuapp.com/'
 
 axios.interceptors.response.use(response => response, async err => {
 	const storage = localStorage.getItem('userDetails')
