@@ -20,7 +20,7 @@ export default {
   },
 
   mounted(){
-		axios.get('').then(async response => this.message = response.data)
+		axios.get('').then(async response => this.message = response.data || 'Error response API')
   },
 }
 </script>
