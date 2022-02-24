@@ -20,6 +20,12 @@
 			</ul>
 		</div>
 
+		<div class="row justify-content-md-center">
+    <div class="alert alert-danger" role="alert" v-if="error">
+      {{ message }}
+    </div>
+    </div>
+
 	</main>
 </template>
 
@@ -37,12 +43,16 @@ export default {
 			created_at: '',
 			updated_at: '',
 			updated: null,
-			table: null
+			table: null,
+			error: null,
+			message: ''
 		}
 	},
 
 	methods: {
   async handleInput(){
+	this.error = null 
+  try {
 		if(this.input.length > 0) {
 		const input = this.input.replace(/\s/g, '')
 		const { data } = await axios.get(`account/search?email=${input}`)
@@ -54,6 +64,11 @@ export default {
 			this.updated_at = updated_at ? formatDate(new Date(updated_at)) : this.updated = null
 			this.table = true 
 		}
+	} catch (e) {
+		console.log(e)
+		this.message = 'User not found'
+		this.error = true
+	}
 	}
   },
 
