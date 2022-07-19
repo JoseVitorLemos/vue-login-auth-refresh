@@ -1,24 +1,16 @@
-# vue-login-auth-refresh
+## VUE JS Login Auth Refresh
 
-## Project setup
-```
-npm install
-```
+1. javascript
+2. Axios
+3. Bootstrap Vue
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+<br>
 
-### Compiles and minifies for production
-```
-npm run build
-```
+| NODE JS Back-end                                                                  |                          URL                                     |
+| --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| <img width='150' height="50" src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" /> | <a href="https://github.com/JoseVitorLemos/vue-login-auth-refresh" target="_blank"> https://github.com/JoseVitorLemos/typescript-jwt-users <a />  |
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Social 
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<a href="https://www.linkedin.com/in/josé-vitor-08188320a/" target="_blank">
+<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="20"/> <a />  José Vitor </li>
